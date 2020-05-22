@@ -10,21 +10,15 @@ app = Flask(__name__)
 
 
 
-#@app.route('/')
+@app.route('/')
 @accept_fallback
-#def hello_world():
-#    return '<p>Hello, World</p>'
+def hello_world():
+    return '<p>Hello, World</p>'
 
-@app.route('/login',methods = ['GET', 'POST'])
-def login():
-    uname=request.form['uname']
-    passwrd=request.form['pass']
-    if uname=="vkuruganti" and passwrd=="auto":
-        return "Welcome %s" %uname
 
-#@hello_world.support('application/json')
-#def hello_world_json():
-#    return jsonify(message="Hello, World")
+@hello_world.support('application/json')
+def hello_world_json():
+    return jsonify(message="Hello, World")
 
 
 if __name__ == '__main__':
